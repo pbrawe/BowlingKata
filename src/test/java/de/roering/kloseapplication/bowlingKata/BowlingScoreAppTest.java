@@ -7,7 +7,8 @@ public class BowlingScoreAppTest {
     @Test
     void testNoHitsShouldReturnScoreZero(){
         BowlingScoreApp app = new BowlingScoreApp(
-                new String[]{"0", "0",
+                new String[]{
+                        "0", "0",
                         "0", "0",
                         "0", "0",
                         "0", "0",
