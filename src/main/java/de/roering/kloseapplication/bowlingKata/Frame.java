@@ -1,10 +1,13 @@
 package de.roering.kloseapplication.bowlingKata;
 
 public class Frame {
-    public Frame(Roll roll, Roll roll1) {
+    private Roll roll1, roll2;
+    public Frame(Roll roll1, Roll roll2) {
+        this.roll1 = roll1;
+        this.roll2 = roll2;
     }
 
     public int calculateSimpleScore() {
-        return 0;
+        return roll1.getHitPins() + roll2.getHitPins();
     }
 }
