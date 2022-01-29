@@ -36,7 +36,6 @@ public class FrameTest {
     @Test
     void testStrikeShouldReturnSimpleScoreTen(){
         final int RAND = getRandomNumberInRange(1, 10);
-        System.out.println(RAND);
         Frame f = new Frame(new Roll(10), new Roll(RAND));
         assertEquals(10, f.calculateSimpleScore());
     }
