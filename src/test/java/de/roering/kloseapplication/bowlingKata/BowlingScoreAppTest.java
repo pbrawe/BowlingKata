@@ -37,4 +37,21 @@ public class BowlingScoreAppTest {
                         "9-"});
         assertEquals(90, app.getScore());
     }
+
+    @Test
+    void testTenTimesFiveAndSpareWithFinalAdditionalFiveShouldReturnScoreHundredFifty() throws InvalidRollValue, UnjustifiedRollException {
+        BowlingScoreApp app = new BowlingScoreApp(
+                new String[]{
+                        "5/",
+                        "5/",
+                        "5/",
+                        "5/",
+                        "5/",
+                        "5/",
+                        "5/",
+                        "5/",
+                        "5/",
+                        "5/5"});
+        assertEquals(150, app.getScore());
+    }
 }
