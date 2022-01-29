@@ -11,7 +11,7 @@ public class FrameTest {
     }
 
     @Test
-    void testTwoTimesFiveHitsShouldReturnScoreTen(){
+    void testTwoTimesFiveHitsShouldReturnSimpleScoreTen(){
         Frame f = new Frame(new Roll(5), new Roll(5));
         assertEquals(10, f.calculateSimpleScore());
     }
