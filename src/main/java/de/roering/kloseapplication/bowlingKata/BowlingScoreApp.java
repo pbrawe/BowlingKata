@@ -31,6 +31,11 @@ public class BowlingScoreApp {
     }
 
     public int getScore() {
-        return Arrays.stream(frames).map(Frame::calculateSimpleScore).mapToInt(Integer::intValue).sum();
+        int sum =  0;
+        for (int i = 0; i < this.frames.length; i++){
+            final List<Frame> nextFrames = Arrays.stream(Arrays.copyOfRange(this.frames, i + 1, this.frames.length)).toList();
+            sum += frames[i].calculateTotalScore(nextFrames);
+        }
+        return sum;
     }
 }
