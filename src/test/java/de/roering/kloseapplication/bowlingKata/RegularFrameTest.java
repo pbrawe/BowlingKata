@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class RegularFrameTest {
 
     @Test
-    void testStrikeAndTwoThrowsShouldThrowUnjustifiedThrowException(){
+    void testStrikeAndTwoThrowsShouldThrowUnjustifiedRollException(){
         Exception e = assertThrows(UnjustifiedRollException.class, () -> {
             RegularFrame f = new RegularFrame();
             f.addRoll(10);
@@ -15,7 +15,7 @@ public class RegularFrameTest {
     }
 
     @Test
-    void testThreeRollsShouldThrowUnjustifiedThrowException(){
+    void testThreeRollsShouldThrowUnjustifiedRollException(){
         Exception e = assertThrows(UnjustifiedRollException.class, () -> {
             RegularFrame f = new RegularFrame();
             f.addRoll(0);
