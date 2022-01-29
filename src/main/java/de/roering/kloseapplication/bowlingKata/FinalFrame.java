@@ -6,8 +6,13 @@ public class FinalFrame extends Frame{
     }
 
     @Override
-    public void addRoll(int hitPins) {
-        this.getRolls().add(new Roll(hitPins));
+    public void addRoll(int hitPins) throws UnjustifiedRollException {
+        if (this.getRolls().size() >= this.getMaxRollCount()){
+            throw new UnjustifiedRollException();
+        }
+        else {
+            this.getRolls().add(new Roll(hitPins));
+        }
     }
 
     @Override
