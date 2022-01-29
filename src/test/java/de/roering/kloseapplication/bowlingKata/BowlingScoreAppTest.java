@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BowlingScoreAppTest {
     @Test
-    void testNoHitsShouldReturnScoreZero() throws InvalidRollValue {
+    void testNoHitsShouldReturnScoreZero() throws InvalidRollValue, UnjustifiedRollException {
         BowlingScoreApp app = new BowlingScoreApp(
                 new String[]{
                         "00",
@@ -22,19 +22,19 @@ public class BowlingScoreAppTest {
     }
 
     @Test
-    void testTenTimesFiveAndMissShouldReturnScoreNinety() throws InvalidRollValue {
+    void testTenTimesNineAndMissShouldReturnScoreNinety() throws InvalidRollValue, UnjustifiedRollException {
         BowlingScoreApp app = new BowlingScoreApp(
                 new String[]{
-                        "5-",
-                        "5-",
-                        "5-",
-                        "5-",
-                        "5-",
-                        "5-",
-                        "5-",
-                        "5-",
-                        "5-",
-                        "5-"});
+                        "9-",
+                        "9-",
+                        "9-",
+                        "9-",
+                        "9-",
+                        "9-",
+                        "9-",
+                        "9-",
+                        "9-",
+                        "9-"});
         assertEquals(90, app.getScore());
     }
 }
