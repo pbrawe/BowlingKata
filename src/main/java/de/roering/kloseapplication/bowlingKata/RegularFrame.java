@@ -3,8 +3,7 @@ package de.roering.kloseapplication.bowlingKata;
 public class RegularFrame extends Frame{
     @Override
     public void addRoll(int hitPins) throws UnjustifiedRollException {
-        if (this.calculateSimpleScore() >= Frame.STRIKE_PINS || this.getRolls().size() -1 >= this.getMaxRollCount())
-        if (!this.getRolls().isEmpty() && this.getRolls().get(0).getHitPins() == Frame.STRIKE_PINS){
+        if (this.getRolls().size() >= this.getMaxRollCount()){
             throw new UnjustifiedRollException();
         }
         else {
@@ -14,6 +13,8 @@ public class RegularFrame extends Frame{
 
     @Override
     protected int getMaxRollCount() {
-        return 2;
+        if (!this.getRolls().isEmpty() && this.getRolls().get(0).getHitPins() == Frame.STRIKE_PINS)
+            return 1;
+        else return 2;
     }
 }
