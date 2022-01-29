@@ -13,7 +13,7 @@ public class RegularFrame extends Frame{
 
     @Override
     protected int getMaxRollCount() {
-        if (!this.getRolls().isEmpty() && this.getRolls().get(0).getHitPins() == Frame.STRIKE_PINS)
+        if (!this.getRolls().isEmpty() && this.getRolls().get(0).getHitPins() == Frame.STRIKE_SPARE_PINS)
             return 1;
         else return 2;
     }

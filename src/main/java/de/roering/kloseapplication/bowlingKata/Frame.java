@@ -3,7 +3,7 @@ package de.roering.kloseapplication.bowlingKata;
 import java.util.ArrayList;
 
 public abstract class Frame {
-    public final static int STRIKE_PINS = 10;
+    public final static int STRIKE_SPARE_PINS = 10;
     private final ArrayList<Roll> rolls;
     public Frame() {
         this.rolls = new ArrayList<>();
