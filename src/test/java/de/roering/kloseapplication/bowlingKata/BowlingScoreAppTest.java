@@ -8,16 +8,16 @@ public class BowlingScoreAppTest {
     void testNoHitsShouldReturnScoreZero(){
         BowlingScoreApp app = new BowlingScoreApp(
                 new String[]{
-                        "0", "0",
-                        "0", "0",
-                        "0", "0",
-                        "0", "0",
-                        "0", "0",
-                        "0", "0",
-                        "0", "0",
-                        "0", "0",
-                        "0", "0",
-                        "0", "0"});
+                        "00",
+                        "00",
+                        "00",
+                        "00",
+                        "00",
+                        "00",
+                        "00",
+                        "00",
+                        "00",
+                        "00"});
         assertEquals(0, app.getScore());
     }
 }
