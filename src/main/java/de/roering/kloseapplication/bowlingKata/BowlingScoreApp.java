@@ -24,19 +24,10 @@ public class BowlingScoreApp {
         for(char roll : rolls){
             final ArrayList<Roll> frameRolls = frame.getRolls();
             final int lastValue = frameRolls.isEmpty() ? 0 : frameRolls.get(frameRolls.size() -1).getHitPins();
-            final int rollValue = parseRollValue(roll, lastValue);
+            final int rollValue = Roll.parseRollValueFromChar(roll, lastValue);
             frame.addRoll(rollValue);
         }
         return frame;
-    }
-
-    private int parseRollValue(char value, int lastValue) throws InvalidRollValue{
-        int digitValue = Character.getNumericValue(value);
-        if (digitValue >= 0 && digitValue <= 9) return digitValue;
-        else if (value == '-') return 0;
-        else if (value == 'X') return Frame.STRIKE_SPARE_PINS;
-        else if (value == '/') return Frame.STRIKE_SPARE_PINS - lastValue;
-        else throw new InvalidRollValue(value);
     }
 
     public int getScore() {
