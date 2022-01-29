@@ -54,4 +54,21 @@ public class BowlingScoreAppTest {
                         "5/5"});
         assertEquals(150, app.getScore());
     }
+
+    @Test
+    void testTwelveStrikesShouldReturnScoreThreeHundred() throws InvalidRollValue, UnjustifiedRollException {
+        BowlingScoreApp app = new BowlingScoreApp(
+                new String[]{
+                        "X",
+                        "X",
+                        "X",
+                        "X",
+                        "X",
+                        "X",
+                        "X",
+                        "X",
+                        "X",
+                        "XXX"});
+        assertEquals(300, app.getScore());
+    }
 }
