@@ -18,7 +18,7 @@ public class BowlingScoreApp {
 
     private Frame parseFrame(char[] rolls, boolean isFinalFrame) throws InvalidRollValue, UnjustifiedRollException {
         Frame frame;
-        if (isFinalFrame) frame = new RegularFrame();
+        if (!isFinalFrame) frame = new RegularFrame();
         else frame = new FinalFrame();
 
         for(char roll : rolls){
