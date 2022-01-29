@@ -18,4 +18,6 @@ public abstract class Frame {
     }
     // todo change return type to Frame for immutability?
     public abstract void addRoll(int hitPins) throws UnjustifiedRollException;
+
+    protected abstract int getMaxRollCount();
 }
