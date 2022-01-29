@@ -17,5 +17,5 @@ public abstract class Frame {
         return this.getRolls().stream().mapToInt(Roll::getHitPins).sum();
     }
     // todo change return type to Frame for immutability?
-    public abstract void addRoll(int hitPins) throws UnjustifiedThrowException;
+    public abstract void addRoll(int hitPins) throws UnjustifiedRollException;
 }

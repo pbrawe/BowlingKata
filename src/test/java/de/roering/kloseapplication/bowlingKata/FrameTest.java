@@ -12,7 +12,7 @@ public class FrameTest {
     }
 
     @Test
-    void testNoHitsShouldReturnSimpleScoreZero() throws UnjustifiedThrowException {
+    void testNoHitsShouldReturnSimpleScoreZero() throws UnjustifiedRollException {
         RegularFrame f = new RegularFrame();
         f.addRoll(0);
         f.addRoll(0);
@@ -20,7 +20,7 @@ public class FrameTest {
     }
 
     @Test
-    void testTwoTimesFiveHitsShouldReturnSimpleScoreTen() throws UnjustifiedThrowException {
+    void testTwoTimesFiveHitsShouldReturnSimpleScoreTen() throws UnjustifiedRollException {
         RegularFrame f = new RegularFrame();
         f.addRoll(5);
         f.addRoll(5);
@@ -28,7 +28,7 @@ public class FrameTest {
     }
 
     @Test
-    void testRandomSpareShouldReturnSimpleScoreTen() throws UnjustifiedThrowException {
+    void testRandomSpareShouldReturnSimpleScoreTen() throws UnjustifiedRollException {
         int rand = getRandomNumberInRange(1, 10);
         // prevent strikes, as rand is used for the first roll
         while(rand == 10){
@@ -41,7 +41,7 @@ public class FrameTest {
     }
 
     @Test
-    void testStrikeShouldReturnSimpleScoreTen() throws UnjustifiedThrowException {
+    void testStrikeShouldReturnSimpleScoreTen() throws UnjustifiedRollException {
         final int RAND = getRandomNumberInRange(1, 10);
         RegularFrame f = new RegularFrame();
         f.addRoll(10);
