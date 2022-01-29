@@ -13,4 +13,14 @@ public class RegularFrameTest {
             f.addRoll(10);
         });
     }
+
+    @Test
+    void testThreeRollsShouldThrowUnjustifiedThrowException(){
+        Exception e = assertThrows(UnjustifiedRollException.class, () -> {
+            RegularFrame f = new RegularFrame();
+            f.addRoll(0);
+            f.addRoll(0);
+            f.addRoll(0);
+        });
+    }
 }
