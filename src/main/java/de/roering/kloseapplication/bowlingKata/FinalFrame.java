@@ -1,5 +1,7 @@
 package de.roering.kloseapplication.bowlingKata;
 
+import de.roering.kloseapplication.bowlingKata.exceptions.UnjustifiedRollException;
+
 public class FinalFrame extends Frame{
     public FinalFrame(){
         super();

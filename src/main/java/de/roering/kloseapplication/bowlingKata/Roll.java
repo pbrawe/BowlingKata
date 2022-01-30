@@ -1,5 +1,7 @@
 package de.roering.kloseapplication.bowlingKata;
 
+import de.roering.kloseapplication.bowlingKata.exceptions.InvalidRollValueException;
+
 public class Roll {
     private int hitPins;
     public Roll(int hitPins) {

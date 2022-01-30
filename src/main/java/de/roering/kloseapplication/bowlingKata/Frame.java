@@ -1,5 +1,7 @@
 package de.roering.kloseapplication.bowlingKata;
 
+import de.roering.kloseapplication.bowlingKata.exceptions.UnjustifiedRollException;
+
 import java.util.ArrayList;
 import java.util.List;
 

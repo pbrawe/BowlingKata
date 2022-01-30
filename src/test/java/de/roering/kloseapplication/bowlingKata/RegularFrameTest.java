@@ -1,5 +1,6 @@
 package de.roering.kloseapplication.bowlingKata;
 
+import de.roering.kloseapplication.bowlingKata.exceptions.UnjustifiedRollException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
