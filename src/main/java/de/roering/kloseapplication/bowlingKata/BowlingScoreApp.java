@@ -6,7 +6,8 @@ import de.roering.kloseapplication.bowlingKata.exceptions.UnjustifiedRollExcepti
 import java.util.*;
 
 public class BowlingScoreApp {
-    private final Frame[] frames = new Frame[10];
+    private final int FRAME_COUNT = 10;
+    private final Frame[] frames = new Frame[FRAME_COUNT];
     public BowlingScoreApp(String[] input) throws InvalidRollValueException, UnjustifiedRollException {
         this.parseFrames(input);
     }
@@ -14,6 +15,7 @@ public class BowlingScoreApp {
     private void parseFrames(String[] frameStrings) throws InvalidRollValueException, UnjustifiedRollException {
         List <char[]> rollsList = Arrays.stream(frameStrings).map(String::toCharArray).toList();
         for (int i = 0; i < rollsList.size(); i++){
+            if (i > FRAME_COUNT) throw new UnjustifiedRollException("more than %d rolls are not allowed.");
             Frame frame = parseFrame(rollsList.get(i), i +1 == rollsList.size());
             frames[i] = frame;
         }

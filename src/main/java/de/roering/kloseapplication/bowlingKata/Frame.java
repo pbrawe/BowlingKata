@@ -25,7 +25,7 @@ public abstract class Frame {
     protected abstract int getMaxRollCount();
 
     public boolean isStrike(){
-        return !this.getRolls().isEmpty() && this.getRolls().get(0).getHitPins() == 10;
+        return !this.getRolls().isEmpty() && this.getRolls().get(0).getHitPins() == STRIKE_SPARE_PINS;
     }
 
     public boolean isSpare(){
