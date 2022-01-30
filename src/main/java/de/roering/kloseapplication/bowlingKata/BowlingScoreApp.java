@@ -4,11 +4,11 @@ import java.util.*;
 
 public class BowlingScoreApp {
     private final Frame[] frames = new Frame[10];
-    public BowlingScoreApp(String[] input) throws InvalidRollValue, UnjustifiedRollException {
+    public BowlingScoreApp(String[] input) throws InvalidRollValueException, UnjustifiedRollException {
         this.parseFrames(input);
     }
 
-    private void parseFrames(String[] frameStrings) throws InvalidRollValue, UnjustifiedRollException {
+    private void parseFrames(String[] frameStrings) throws InvalidRollValueException, UnjustifiedRollException {
         List <char[]> rollsList = Arrays.stream(frameStrings).map(String::toCharArray).toList();
         for (int i = 0; i < rollsList.size(); i++){
             Frame frame = parseFrame(rollsList.get(i), i +1 == rollsList.size());
@@ -16,7 +16,7 @@ public class BowlingScoreApp {
         }
     }
 
-    private Frame parseFrame(char[] rolls, boolean isFinalFrame) throws InvalidRollValue, UnjustifiedRollException {
+    private Frame parseFrame(char[] rolls, boolean isFinalFrame) throws InvalidRollValueException, UnjustifiedRollException {
         Frame frame;
         if (!isFinalFrame) frame = new RegularFrame();
         else frame = new FinalFrame();

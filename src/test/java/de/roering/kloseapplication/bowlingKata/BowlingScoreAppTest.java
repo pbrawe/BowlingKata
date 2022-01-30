@@ -2,10 +2,11 @@ package de.roering.kloseapplication.bowlingKata;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class BowlingScoreAppTest {
     @Test
-    void testNoHitsShouldReturnScoreZero() throws InvalidRollValue, UnjustifiedRollException {
+    void testNoHitsShouldReturnScoreZero() throws InvalidRollValueException, UnjustifiedRollException {
         BowlingScoreApp app = new BowlingScoreApp(
                 new String[]{
                         "00",
@@ -22,7 +23,7 @@ public class BowlingScoreAppTest {
     }
 
     @Test
-    void testTenTimesNineAndMissShouldReturnScoreNinety() throws InvalidRollValue, UnjustifiedRollException {
+    void testTenTimesNineAndMissShouldReturnScoreNinety() throws InvalidRollValueException, UnjustifiedRollException {
         BowlingScoreApp app = new BowlingScoreApp(
                 new String[]{
                         "9-",
@@ -39,7 +40,7 @@ public class BowlingScoreAppTest {
     }
 
     @Test
-    void testTenTimesFiveAndSpareWithFinalAdditionalFiveShouldReturnScoreHundredFifty() throws InvalidRollValue, UnjustifiedRollException {
+    void testTenTimesFiveAndSpareWithFinalAdditionalFiveShouldReturnScoreHundredFifty() throws InvalidRollValueException, UnjustifiedRollException {
         BowlingScoreApp app = new BowlingScoreApp(
                 new String[]{
                         "5/",
@@ -56,7 +57,7 @@ public class BowlingScoreAppTest {
     }
 
     @Test
-    void testTwelveStrikesShouldReturnScoreThreeHundred() throws InvalidRollValue, UnjustifiedRollException {
+    void testTwelveStrikesShouldReturnScoreThreeHundred() throws InvalidRollValueException, UnjustifiedRollException {
         BowlingScoreApp app = new BowlingScoreApp(
                 new String[]{
                         "X",
@@ -73,7 +74,7 @@ public class BowlingScoreAppTest {
     }
 
     @Test
-    void testNineTimesNineAndMissWithFinalSparePlusNineShouldReturnScoreHundred() throws InvalidRollValue, UnjustifiedRollException {
+    void testNineTimesNineAndMissWithFinalSparePlusNineShouldReturnScoreHundred() throws InvalidRollValueException, UnjustifiedRollException {
         BowlingScoreApp app = new BowlingScoreApp(
                 new String[]{
                         "9-",
@@ -92,7 +93,7 @@ public class BowlingScoreAppTest {
     // This is the rarest score in bowling:)
     // (claimed by a guy on quora)
     @Test
-    void testElevenStrikesWithAFinalToShouldReturnScoreTwoHundredNinetyTwo() throws InvalidRollValue, UnjustifiedRollException {
+    void testElevenStrikesWithAFinalToShouldReturnScoreTwoHundredNinetyTwo() throws InvalidRollValueException, UnjustifiedRollException {
         BowlingScoreApp app = new BowlingScoreApp(
                 new String[]{
                         "X",
@@ -109,7 +110,7 @@ public class BowlingScoreAppTest {
     }
 
     @Test
-    void testRecurringMissesAndSparesShouldReturnScoreHundred() throws InvalidRollValue, UnjustifiedRollException {
+    void testRecurringMissesAndSparesShouldReturnScoreHundred() throws InvalidRollValueException, UnjustifiedRollException {
         BowlingScoreApp app = new BowlingScoreApp(
                 new String[]{
                         "0/",
@@ -123,5 +124,24 @@ public class BowlingScoreAppTest {
                         "0/",
                         "0/0"});
         assertEquals(100, app.getScore());
+    }
+
+    @Test
+    void testInvalidRollValueCharShouldThrowInvalidRollValue() throws InvalidRollValueException, UnjustifiedRollException {
+        Exception e = assertThrows(InvalidRollValueException.class, () -> {
+            BowlingScoreApp app = new BowlingScoreApp(
+                    new String[]{
+                            "0/",
+                            "0/",
+                            "0/",
+                            "0/",
+                            "0%",
+                            "0/",
+                            "0/",
+                            "0/",
+                            "0/",
+                            "0/0"});
+        });
+        assertEquals(e.getMessage(), "invalid Roll Value of '%'");
     }
 }
