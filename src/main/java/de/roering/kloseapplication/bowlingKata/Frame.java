@@ -23,7 +23,7 @@ public abstract class Frame {
     protected abstract int getMaxRollCount();
 
     public boolean isStrike(){
-        return this.getRolls().stream().anyMatch(roll -> roll.getHitPins() == 10);
+        return !this.getRolls().isEmpty() && this.getRolls().get(0).getHitPins() == 10;
     }
 
     public boolean isSpare(){
