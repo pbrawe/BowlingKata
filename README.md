@@ -1,5 +1,5 @@
 # BowlingKata
-Bowling Kata used for a job application
+Bowling Kata developed with tdd
 
 http://codingdojo.org/kata/Bowling/
 
