@@ -43,7 +43,6 @@ public class FrameTest {
 
     @Test
     void testStrikeShouldReturnSimpleScoreTen() throws UnjustifiedRollException {
-        final int RAND = getRandomNumberInRange(1, 10);
         RegularFrame f = new RegularFrame();
         f.addRoll(10);
         assertEquals(10, f.calculateSimpleScore());

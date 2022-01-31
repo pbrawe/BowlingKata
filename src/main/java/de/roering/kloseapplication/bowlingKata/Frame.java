@@ -19,10 +19,18 @@ public abstract class Frame {
     public int calculateSimpleScore() {
         return this.getRolls().stream().mapToInt(Roll::getHitPins).sum();
     }
-    // todo change return type to Frame for immutability?
-    public abstract void addRoll(int hitPins) throws UnjustifiedRollException;
 
     protected abstract int getMaxRollCount();
+
+    // todo change return type to Frame for immutability?
+    public void addRoll(int hitPins) throws UnjustifiedRollException {
+        if (this.getRolls().size() >= this.getMaxRollCount()){
+            throw new UnjustifiedRollException();
+        }
+        else {
+            this.getRolls().add(new Roll(hitPins));
+        }
+    }
 
     public boolean isStrike(){
         return !this.getRolls().isEmpty() && this.getRolls().get(0).getHitPins() == STRIKE_SPARE_PINS;
@@ -37,7 +45,6 @@ public abstract class Frame {
     public int calculateTotalScore(List<Frame> nextFrames){
         final boolean isStrike = this.isStrike();
         final boolean isSpare = this.isSpare();
-        int score = this.calculateSimpleScore();
         List<Roll> nextRolls = nextFrames.stream().flatMap(frame -> frame.getRolls().stream()).toList();
         if (isStrike){
             return this.calculateSimpleScore() + calculateSimpleScoreOfNextNRolls(nextRolls, 2);
@@ -48,7 +55,7 @@ public abstract class Frame {
         else return this.calculateSimpleScore();
     }
 
-    public int calculateSimpleScoreOfNextNRolls(List<Roll> nextRolls, int n){
+    private int calculateSimpleScoreOfNextNRolls(List<Roll> nextRolls, int n){
         int score = 0;
         for (int i = 0; i < n && i < nextRolls.size(); i++){
             score += nextRolls.get(i).getHitPins();

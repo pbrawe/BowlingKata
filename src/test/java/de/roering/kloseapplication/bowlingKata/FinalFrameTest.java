@@ -18,7 +18,7 @@ public class FinalFrameTest {
 
     @Test
     void testThreeRollsShouldThrowUnjustifiedRollException(){
-        Exception e = assertThrows(UnjustifiedRollException.class, () -> {
+        assertThrows(UnjustifiedRollException.class, () -> {
             FinalFrame f = new FinalFrame();
             f.addRoll(0);
             f.addRoll(0);

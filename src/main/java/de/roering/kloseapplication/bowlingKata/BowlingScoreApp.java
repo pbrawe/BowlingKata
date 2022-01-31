@@ -6,7 +6,7 @@ import de.roering.kloseapplication.bowlingKata.exceptions.UnjustifiedRollExcepti
 import java.util.*;
 
 public class BowlingScoreApp {
-    private final int FRAME_COUNT = 10;
+    private final static int FRAME_COUNT = 10;
     private final Frame[] frames = new Frame[FRAME_COUNT];
     public BowlingScoreApp(String[] input) throws InvalidRollValueException, UnjustifiedRollException {
         this.parseFrames(input);

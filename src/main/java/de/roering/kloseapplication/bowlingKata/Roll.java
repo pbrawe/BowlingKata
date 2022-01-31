@@ -3,7 +3,7 @@ package de.roering.kloseapplication.bowlingKata;
 import de.roering.kloseapplication.bowlingKata.exceptions.InvalidRollValueException;
 
 public class Roll {
-    private int hitPins;
+    private final int hitPins;
     public Roll(int hitPins) {
         this.hitPins = hitPins;
     }

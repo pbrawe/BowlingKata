@@ -129,7 +129,7 @@ public class BowlingScoreAppTest {
     }
 
     @Test
-    void testInvalidRollValueCharShouldThrowInvalidRollValue() throws InvalidRollValueException, UnjustifiedRollException {
+    void testInvalidRollValueCharShouldThrowInvalidRollValue() {
         Exception e = assertThrows(InvalidRollValueException.class, () -> {
             BowlingScoreApp app = new BowlingScoreApp(
                     new String[]{

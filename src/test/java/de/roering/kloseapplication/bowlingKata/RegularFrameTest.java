@@ -8,7 +8,7 @@ public class RegularFrameTest {
 
     @Test
     void testStrikeAndTwoThrowsShouldThrowUnjustifiedRollException(){
-        Exception e = assertThrows(UnjustifiedRollException.class, () -> {
+        assertThrows(UnjustifiedRollException.class, () -> {
             RegularFrame f = new RegularFrame();
             f.addRoll(10);
             f.addRoll(10);
@@ -17,7 +17,7 @@ public class RegularFrameTest {
 
     @Test
     void testThreeRollsShouldThrowUnjustifiedRollException(){
-        Exception e = assertThrows(UnjustifiedRollException.class, () -> {
+        assertThrows(UnjustifiedRollException.class, () -> {
             RegularFrame f = new RegularFrame();
             f.addRoll(0);
             f.addRoll(0);
